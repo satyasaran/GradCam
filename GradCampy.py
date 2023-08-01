@@ -22,7 +22,7 @@ class CustomModel(torch.nn.Module):
         self.model = models.resnet50(pretrained=False)
         num_features = self.model.fc.in_features
         self.model.fc = torch.nn.Linear(num_features, 2)  # 2 classes
-        pretrained_path = '/content/drive/MyDrive/AI_health/data_health/2class_resnet50_30epochs.pth'
+        pretrained_path = 'trl102/2class_resnet50_30epochs.pth'
         self.model.load_state_dict(torch.load(pretrained_path))
         self.model.eval()
 
